@@ -17,6 +17,7 @@
 * 解压缩node_modules.7z文件到根目录
 * 修改_config.yml文件配置
 * 修改.travis.yml配置
+* 修改source目录下的CNAME文件，设置为绑定的域名
 * 执行生成提交命令: [heox d -g]
 
 ## Travis CI自动化部署
