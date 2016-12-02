@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 源码部落格
-subtitle: 源码之前,了无秘密
-description: 部落格-一个源码剖析的坐标系
-author: Karl(638781@qq.com)
+title: 苏豪-一座城池
+subtitle: 这就是我心中的一座城池，其他人眼中的一片废墟
+description: 我总感觉在茫然中发生了很多真切的事情，而这些事情却不是真的，它们清楚地存在于我的记亿里，毫无疑问保存着每一个细节，却又无从知道它们发生的具体时间
+author: SuHao(638781@qq.com)
 language:
 timezone:
 
@@ -14,7 +14,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://blog.sc
 root: /
-permalink: lang=:lang&cat=:category/:title.html
+permalink: cat=:category/:title.html
 permalink_defaults:
   lang: zh_cn
 
@@ -45,7 +45,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: daily
+default_category: diary
 category_map:
 tag_map:
 
@@ -70,6 +70,6 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:blogpage/blog.sc.git
+  repo: git@github.com:blogpage/isuhao.cn.git
   branch: master
-  message: Generate the blog pages for analysis of source code.
+  message: Generate the pages for the ideal city.
