@@ -28,6 +28,7 @@
    travis login --auto #如果返回登录失败，清理Personal Access Tokens中的记录即可
    travis encrypt 'GH_TOKEN=<Tokens>' --add #会在.travis.yml文件中添加secure值（如果文件为空，添加到env-global下，反之在dd下）
    ``` 
+
 * 在[travis](https://travis-ci.org)对应的项目设置中，添加GH_TOKEN键值对
 
 ##有问题反馈
