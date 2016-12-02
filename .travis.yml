@@ -1,35 +1,18 @@
 language: node_js
-node_js: stable
-
-# CI with SSH-KEY.
-before_install:
-# install hexo
-- npm install -g hexo
-
-# Decrypt the private key
-- openssl aes-256-cbc -K $encrypted_8f00e1823495_key -iv $encrypted_8f00e1823495_iv
-  -in .travis/blog_page_ci_key.enc -out ~/.ssh/blog_page_ci_key -d
-  
-# Set the permission of the key
-- chmod 600 ~/.ssh/blog_page_ci_key
-
-# Start SSH agent
-- eval $(ssh-agent)
-
-# Add the private key to the system
-- ssh-add ~/.ssh/blog_page_ci_key
-
-# Copy SSH config
-- cp .travis/ssh_config ~/.ssh/config
-
-# Set Git config
-- git config --global user.name "karl_robot"
-- git config --global user.email "638781@qq.com"
-
-script:
-- hexo generate
-- hexo deploy
-
 branches:
   only:
-    - gen
+  - gen #源码分支名称
+before_install:
+- npm install -g hexo
+- npm install -g hexo-cli
+before_script:
+- git config --global user.name 'yourname'
+- git config --global user.email 'youremail'
+- sed -i'' "s~git@github.com:<yourname>/<projectname>.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/<yourname>/<projectname>.git~" _config.yml
+install:
+- npm install
+script:
+- hexo clean
+- hexo generate
+after_success:
+- hexo deploy
