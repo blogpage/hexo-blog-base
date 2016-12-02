@@ -1,5 +1,6 @@
 ##Hexo-blog-base是什么?
 基于hexo的个人博客配置工程，包含基本的配置
+
 向hexo作者致敬
 
 ##如何使用？
@@ -37,6 +38,6 @@
 ```javascript
   var isuhao = {
     Name  : "苏豪",
-    site : "http://isuhao.org"
+    site : "http://suhao.org"
   }
 ```
