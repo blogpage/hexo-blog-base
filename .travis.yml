@@ -1,14 +1,15 @@
 language: node_js
 branches:
   only:
-  - gen #源码分支名称
+  - gen
 before_install:
 - npm install -g hexo
 - npm install -g hexo-cli
 before_script:
-- git config --global user.name 'yourname'
-- git config --global user.email 'youremail'
-- sed -i'' "s~git@github.com:<yourname>/<projectname>.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/<yourname>/<projectname>.git~" _config.yml
+- git config --global user.name 'Karl_Robot'
+- git config --global user.email '638781@qq.com'
+- sed -i'' "s~git@github.com:blogpage/isuhao.cn.git~https://${GH_TOKEN}:x-oauth-basic@github.com/blogpage/isuhao.cn.git~"
+  _config.yml
 install:
 - npm install
 script:
