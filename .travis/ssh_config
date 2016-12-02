@@ -1,0 +1,5 @@
+Host github.com
+	User git
+	StrictHostKeyChecking no
+	IdentityFile ~/.ssh/blog_page_ci_key
+	IdentitiesOnly yes

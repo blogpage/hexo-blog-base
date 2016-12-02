@@ -1,0 +1,62 @@
+language: node_js
+node_js: stable
+
+# # CI with SSH-KEY.
+
+# before_install:
+# - npm install hexo -g
+
+# # Decrypt the private key
+# - openssl aes-256-cbc -K $encrypted_8cada8d6e4a0_key -iv $encrypted_8cada8d6e4a0_iv
+#   -in .travis/blog_ci.enc -out ~/.ssh/blog_ci -d
+
+# # Set the permission of the key
+# - chmod 600 ~/.ssh/blog_ci
+
+# # Start SSH agent
+# - eval $(ssh-agent)
+
+# # Add the private key to the system
+# - ssh-add ~/.ssh/blog_ci
+
+# # Copy SSH config
+# - cp .travis/ssh_config ~/.ssh/config
+
+# # Set Git config
+# - git config --global user.name "karl_bot"
+# - git config --global user.email "638781@qq.com"
+
+# script:
+# - hexo generate
+# - hexo deploy
+
+# branches:
+#   only:
+#   - gen
+
+# CI with personal access token.
+# Start: Build Lifecycle
+install:
+  -npm install
+  -npm install hexo -g
+ 
+script:
+  - hexo generate
+  
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "karl_robot"
+  - git config.user.email "638781@qq.com"
+  - git add .
+  - git commit -m "Robot generate the pages."
+  - git push --force --quiet "http://${GH_TOKEN}@{GH_REF}" gen:master
+# End: build lifecycle.
+
+branches:
+  only:
+    - gen
+	
+env:
+  global:
+    - GH_REF: github.com/blogpage/blog.sc
